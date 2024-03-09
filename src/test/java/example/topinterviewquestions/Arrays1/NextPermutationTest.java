@@ -3,7 +3,6 @@ package example.topinterviewquestions.Arrays1;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.logging.Logger;
 
 
@@ -29,15 +28,13 @@ public class NextPermutationTest {
             reverseArray(nums,0,n);
         }
         else{
-            int minIndex = breakPoint+1;
-            for(int i= breakPoint+1;i<n;i++){
-                if(nums[i]<nums[minIndex]&&nums[breakPoint]<nums[i]){
-                    minIndex = i;
+            for(int i= n-1;i>breakPoint;i--){
+                if(nums[i]>nums[breakPoint]){
+                    swapElement(nums,i,breakPoint);
+                    break;
                 }
             }
-            swapElement(nums,minIndex,breakPoint);
-
-            reverseArray(nums,minIndex,n);
+            reverseArray(nums,breakPoint+1,n);
         }
     }
 
@@ -60,7 +57,7 @@ public class NextPermutationTest {
 
     @Test
     public void nextPermutationTest(){
-        int[] nums = new int[]{2,3,1};
+        int[] nums = new int[]{1,3,2};
         nextPermutation(nums);
         log.info(Arrays.toString(nums));
     }
