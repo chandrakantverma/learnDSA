@@ -31,7 +31,8 @@ public class NextPermutationTest {
     }
   }
 
-  private void swapElement(int[] nums, int minIndex, int breakPoint) {
+  public static void swapElement(int[] nums, int minIndex, int breakPoint) {
+    if (nums[minIndex] == nums[breakPoint]) return;
     nums[minIndex] = nums[minIndex] + nums[breakPoint];
     nums[breakPoint] = nums[minIndex] - nums[breakPoint];
     nums[minIndex] = nums[minIndex] - nums[breakPoint];
