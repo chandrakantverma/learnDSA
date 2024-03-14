@@ -8,10 +8,10 @@ public class FindTheDuplicateTest {
         int n = nums.length;
         int i = 0;
         while(i<n){
-            if(nums[Math.abs(nums[i])-1]<0)
-                return nums[i]*-1;
+            if(nums[(nums[i]<0?(nums[i]*-1):(nums[i]))-1]<0)
+                return nums[i]<0?nums[i]*-1:nums[i];
             else
-                nums[Math.abs(nums[i])-1] *= -1;
+                nums[(nums[i]<0?(nums[i]*-1):(nums[i]))-1] *= -1;
             i++;
         }
         return 0;
@@ -19,6 +19,6 @@ public class FindTheDuplicateTest {
 
     @Test
     public void testDuplicate(){
-        Assertions.assertEquals(2, findDuplicate(new int[]{1,3,4,2,2}));
+        Assertions.assertEquals(3, findDuplicate(new int[]{3,1,3,4,2}));
     }
 }
