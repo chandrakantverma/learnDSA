@@ -1,8 +1,8 @@
-package steps.step1.lecture4;
+package steps.step1;
 
 import java.util.*;
 
-public class CountDigit {
+public class Lecture4 {
 
     public static void main(String[] args) {
         int digits = 123456789;
